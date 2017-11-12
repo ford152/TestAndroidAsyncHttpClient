@@ -23,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendHttp(View view) {
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("https://www.google.com", new AsyncHttpResponseHandler() {
+        RequestParams params = new RequestParams();
+        params.put("q", "github");
+        client.addHeader("accept-language", "de");
+
+        client.get("https://www.google.com.ua/search", params, new AsyncHttpResponseHandler() {
 
             @Override
             public void onStart() {
@@ -33,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                 System.out.println(new String(response));
-                tW.setText(new String(response));
             }
 
             @Override
