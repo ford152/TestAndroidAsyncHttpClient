@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -19,9 +20,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'lib', include: ['*.jar'])
 
-    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile group: 'com.squareup.okio', name: 'okio', version: '1.13.0'
 
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
